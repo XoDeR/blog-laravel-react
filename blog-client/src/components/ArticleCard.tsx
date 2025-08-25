@@ -11,9 +11,10 @@ import { useDeleteArticle } from "@/hooks/useArticles";
 
 interface Props {
   article: Article;
+  onEdit: (article: Article) => void;
 }
 
-const ArticleCard = ({ article }: Props) => {
+const ArticleCard = ({ article, onEdit }: Props) => {
   const deleteMutation = useDeleteArticle();
 
   const handleDelete = (articleId: number) => {
@@ -31,7 +32,7 @@ const ArticleCard = ({ article }: Props) => {
         <p className="text-sm text-muted-foreground">{article.content}</p>
       </CardContent>
       <CardFooter className="mt-auto">
-        <Button variant="secondary" size="sm" onClick={() => {}}>
+        <Button variant="secondary" size="sm" onClick={() => onEdit(article)}>
           Edit
         </Button>
         <Button
