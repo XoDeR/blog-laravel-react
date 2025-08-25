@@ -3,6 +3,7 @@ import ArticleEditForm from "@/components/ArticleEditForm";
 import ArticleList from "@/components/ArticleList";
 import { Modal } from "@/components/Modal";
 import { Button } from "@/components/ui/button";
+import useAuthStore from "@/stores/authStore";
 import type { Article } from "@/types";
 import { useState } from "react";
 
@@ -45,12 +46,23 @@ const ArticlesPage = () => {
     }
   };
 
+  const clearToken = useAuthStore((state) => state.clearToken);
+
+  const handleLogout = () => {
+    clearToken();
+  };
+
   return (
     <div>
       <div className="mx-auto max-w-6xl p-4">
-        <Button variant="outline" size="sm" onClick={() => handleCreate()}>
-          Create Article
-        </Button>
+        <div className="flex justify-between">
+          <Button variant="outline" size="sm" onClick={() => handleCreate()}>
+            Create Article
+          </Button>
+          <Button variant="outline" size="sm" onClick={() => handleLogout()}>
+            Logout
+          </Button>
+        </div>
       </div>
       <ArticleList onEdit={onEdit} />
       <Modal
