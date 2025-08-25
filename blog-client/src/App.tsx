@@ -1,11 +1,15 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css'
+import ArticlesPage from './pages/ArticlesPage';
 
-function App() {
+const App = () => {
 
   return (
-    <>
-      App
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<ArticlesPage/>}/>
+      </Routes>
+    </Router>
   )
 }
 
