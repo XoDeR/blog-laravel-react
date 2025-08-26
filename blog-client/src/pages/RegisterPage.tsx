@@ -71,7 +71,7 @@ const RegisterPage = () => {
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Email</FormLabel>
+                <FormLabel>Username</FormLabel>
                 <FormControl>
                   <Input placeholder="Username..." {...field} />
                 </FormControl>
